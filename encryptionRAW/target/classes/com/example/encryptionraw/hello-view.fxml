@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="874.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.encryptionraw.HelloController">
+  <tabs>
+    <Tab text="Encrypt">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="encryptInput" layoutX="20.0" layoutY="14.0" prefHeight="145.0" prefWidth="378.0" promptText="input" />
+                  <TextArea fx:id="encryptOutput" editable="false" layoutX="20.0" layoutY="207.0" prefHeight="24.0" prefWidth="379.0" promptText="output" />
+                  <Button layoutX="608.0" layoutY="276.0" mnemonicParsing="false" onAction="#clearStages" text="Clear" />
+                  <TextArea fx:id="encryptKey" editable="false" layoutX="20.0" layoutY="257.0" prefHeight="29.0" prefWidth="379.0" promptText="key" />
+                  <ListView fx:id="encryptPreListView" layoutX="414.0" layoutY="14.0" onMouseClicked="#addEncryptionStage" prefHeight="243.0" prefWidth="200.0" />
+                  <ListView fx:id="encryptPostListView" layoutX="642.0" layoutY="14.0" prefHeight="243.0" prefWidth="200.0" />
+                  <TextArea fx:id="encryptIV" editable="false" layoutX="20.0" layoutY="303.0" prefHeight="29.0" prefWidth="379.0" promptText="iv" />
+                  <TextArea fx:id="encryptSecondaryInput" layoutX="20.0" layoutY="164.0" prefHeight="38.0" prefWidth="186.0" promptText="secondary input" />
+                  <TextArea fx:id="encryptTertiaryInput" layoutX="210.0" layoutY="164.0" prefHeight="38.0" prefWidth="188.0" promptText="tertiary input" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="Hash">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="hashInput" layoutX="24.0" layoutY="14.0" prefHeight="174.0" prefWidth="348.0" promptText="input" />
+                  <TextArea fx:id="hashOutput" editable="false" layoutX="24.0" layoutY="277.0" minHeight="0.0" prefHeight="59.0" prefWidth="349.0" promptText="output hash" />
+                  <ComboBox fx:id="hashComboBox" layoutX="561.0" layoutY="179.0" onAction="#hashComboChange" prefWidth="150.0" promptText="Algorithm" />
+                  <Button fx:id="runHashButton" disable="true" layoutX="618.0" layoutY="226.0" mnemonicParsing="false" onAction="#runHash" text="Run" />
+                  <Button layoutX="580.0" layoutY="264.0" mnemonicParsing="false" onAction="#copyToClipboard" text="Copy to Clipboard" />
+                  <TextArea fx:id="hashKeyInput" layoutX="24.0" layoutY="192.0" minHeight="0.0" prefHeight="30.0" prefWidth="348.0" promptText="input key" />
+                  <TextArea fx:id="hashKeyOutput" layoutX="24.0" layoutY="342.0" minHeight="0.0" minWidth="0.0" prefHeight="30.0" prefWidth="348.0" promptText="output key" />
+                  <Label layoutX="113.0" layoutY="238.0" text="&lt; ------------------- &gt;">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+      <Tab text="Solve">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="solveInputTextArea" layoutX="26.0" layoutY="26.0" prefHeight="177.0" prefWidth="352.0" promptText="input" />
+                  <TextArea editable="false" layoutX="26.0" layoutY="226.0" prefHeight="212.0" prefWidth="350.0" promptText="output" />
+                  <Button layoutX="462.0" layoutY="191.0" mnemonicParsing="false" onAction="#importWordlist" text="Import Wordlist" />
+                  <Button layoutX="462.0" layoutY="226.0" mnemonicParsing="false" onAction="#runSoloBrute" prefHeight="25.0" prefWidth="57.0" text="Run" />
+                  <Button fx:id="accessWordlistButton" layoutX="634.0" layoutY="191.0" mnemonicParsing="false" onAction="#accessWordlist" text="Access Wordlist" />
+                  <CheckBox fx:id="solveStartMinimized" layoutX="634.0" layoutY="230.0" mnemonicParsing="false" text="Start Minimized" />
+                  <Button layoutX="577.0" layoutY="191.0" mnemonicParsing="false" onAction="#clearWordlist" text="Clear" />
+                  <CheckBox fx:id="enableVerbosity" layoutX="634.0" layoutY="256.0" mnemonicParsing="false" text="Verbose" />
+                  <ComboBox fx:id="solveComboBox" layoutX="462.0" layoutY="160.0" prefHeight="25.0" prefWidth="272.0" promptText="Select Algorithm" />
+                  <TextField fx:id="threadCountInput" layoutX="523.0" layoutY="226.0" prefHeight="25.0" prefWidth="108.0" promptText="threads (min 1)" />
+                  <TextField fx:id="updateIntervalInput" layoutX="523.0" layoutY="256.0" prefHeight="25.0" prefWidth="108.0" promptText="update interval" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>

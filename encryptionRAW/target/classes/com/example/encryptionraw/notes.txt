@@ -1,0 +1,2 @@
+starts at 58 (i), decreases by 8 (j) until j < 0 then continues to i += 2 until i == 64
+when i reaches 64, i = 57 and continues previous algorithm until i == 63
